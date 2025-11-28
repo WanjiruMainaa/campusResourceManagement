@@ -40,9 +40,9 @@ class Lecturer(models.Model):
 
 
 
-#resourse - managing campus resources
+#resourse - managing campus resource
 
-class Resources(models.Model):
+class Resource(models.Model):
     RESOURSCE_TYPE_CHOICES = [
         ('room', 'Room'),
         ('laptop', 'Laptop'),
@@ -64,7 +64,7 @@ class Resources(models.Model):
 
 #booking - resource reservation requests
 class Booking(models.Model):
-    resource = models.ForeignKey(Resources, on_delete=models.CASCADE)
+    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
     booked_by = models.ForeignKey(User, on_delete=models.CASCADE)
     date_booked = models.DateTimeField(auto_now_add=True)
     date_needed = models.DateField()
